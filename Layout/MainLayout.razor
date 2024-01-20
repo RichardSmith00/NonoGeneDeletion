@@ -1,0 +1,30 @@
+﻿@using NonoGeneDeletion.Pages
+@using NonoGeneDeletion.Pages.Components
+
+@inherits LayoutComponentBase
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<div class="page">
+    <main>
+        <Carousel />
+        <br />
+        <NavMenu />
+        <br />
+        <article class="content px-4">
+
+            @Body
+        </article>
+    </main>
+</div>
+
+
+@code {
+
+    string[] imgs =
+    {
+        "images/nurse.jpg",
+        "images/doctor-cartoon.jpg",
+        "images/dna-helix.jpg"
+    };
+}

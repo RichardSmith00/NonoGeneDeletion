@@ -1,0 +1,53 @@
+﻿<style>
+    .container {
+        background-color: white;
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+</style>
+
+<div class="container">
+<MudCarousel Class="mud-width-full" Style="height:400px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object" >
+    @* <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudImage Class="mx-auto my-auto" Src="images/nurse.jpg" Alt="doctor" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudImage Class="mx-auto my-auto" Src="images/dna-helix.jpg" Alt="doctor" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudImage Class="mx-auto my-auto" Src="images/doctor-cartoon.jpg" Alt="doctor" />
+        </div>
+    </MudCarouselItem> *@
+    @foreach(string img in ImagePaths)
+        {
+            <MudCarouselItem Transition="transition">
+                <div class="d-flex" style="height:100%">
+                    <MudImage Class="mx-auto my-auto" Src="@img" Alt="doctor" />
+                </div>
+            </MudCarouselItem>
+        }
+    </MudCarousel>
+
+</div>
+@code{
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+    [Parameter]
+    public string[] ImagePaths {get; set;} = new string[]
+    {
+        "images/doctor-cartoon.jpg",
+        "images/dna-helix.jpg",
+        "images/nurse.jpg"
+    };
+}
