@@ -1,0 +1,50 @@
+﻿<style>
+    body {
+        margin: 20px;
+        text-align: center;
+    }
+
+    img {
+        float: @ImageFloatDirection;
+        margin: @ImageMarginPixels;       
+    }
+
+    p {
+        text-align: justify;
+        font-size: @FontSizePixels;
+    }
+</style>
+<div class="square">
+    <div>
+        <img src="@ImagePath"
+             alt="@ImgAlt" style="max-width: @ImageMaxWidth;">
+    </div>
+    <p>
+        @Text
+    </p>
+</div>
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+    [Parameter]
+    public int FontSize { get; set; } = 25;
+    protected string FontSizePixels { get; set; }
+    [Parameter]
+    public string ImagePath { get; set; }
+    [Parameter]
+    public string ImgAlt { get; set; } = "";
+    [Parameter]
+    public string ImageFloatDirection { get; set; } = "left";
+    [Parameter]
+    public string ImageMaxWidth { get; set; } = "250px";
+    [Parameter]
+    public int ImageMargin { get; set; } = 0;
+    protected string ImageMarginPixels { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ImageMarginPixels = string.Format("{0}px", ImageMargin);
+        FontSizePixels = string.Format("{0}px", FontSize);
+    }
+}

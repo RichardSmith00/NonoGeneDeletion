@@ -1,0 +1,25 @@
+﻿<div @onmouseout="()=>ShowHideSub()">
+    <NavLink class="nav-link" @onmouseover="()=>ShowHideSub()">
+        <span class="oi oi-list-rich" aria-hidden="true">Home</span>
+    </NavLink>
+    @if (@expandSubNav)
+    {
+        <NavLink class="expand-menu" href="">
+            <span>Link 1</span>
+        </NavLink>
+        <NavLink class="" href="">
+            <span>Sub2</span>
+        </NavLink>
+    }
+</div>
+
+
+@code {
+    private bool expandSubNav;
+
+    protected void ShowHideSub()
+    {
+        if (expandSubNav) expandSubNav = false;
+        else expandSubNav = true;
+    }
+}
