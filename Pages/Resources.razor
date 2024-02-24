@@ -2,33 +2,27 @@
 
 @page "/resources"
 
-<style>
-    #list-container div {
-        padding: 10px;
-        margin: 20px;
-        display: list-item;
-        list-style-type: none;
-    }
-</style>
 
 <PageTitle>Resources</PageTitle>
 
 <PageBody>
-    <h3>Medical Studies and Other Resources</h3>
+    <h3>NONO-Associated X-linked ID Syndrome Support Groups</h3>
     <br />
-    <h2>Documents</h2>
     <hr />
 
     <div id="list-container">
+        <ul>
+            <li>
+                NONO Gene Mutation
+                <a href="www.facebook.com/groups/1597987633834443" target="_blank">www.facebook.com/groups/1597987633834443</a>
+            </li>
+            <li>
+                Mighty Max NONO gene mutation:
+                <a href="www.facebook.com/groups/1569014886645106" target="_blank">www.facebook.com/groups/1569014886645106</a>
+            </li>
+        </ul>
         <div style="display: block">
-            <a href="@GetLink("UniquePDF")" target="_blank">
-                <ImageAndTextWrap Text="@GetText("UniquePDF")" ImagePath="@GetPath("UniquePDF")" ImageFloatDirection="left" ImageMargin="10"></ImageAndTextWrap>
-            </a>
-        </div>
-        <div style="display: block">
-            <a href="@GetLink("EuroJurnal")" target="_blank">
-                <ImageAndTextWrap Text="@GetText("EuroJurnal")" ImagePath="@GetPath("EuroJurnal")" ImageFloatDirection="top" ImageMargin="10"></ImageAndTextWrap>
-            </a>
+
         </div>
     </div>
     
@@ -42,41 +36,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        string[] unique = new string[3]
-        {
-            @"NONO-associated X-linked ID (intellectual disability) syndrome is a rare genetic condition that causes developmental delay and can affect a child’s learning abilities and behaviour.",
-            "images/unique_logo.png",
-            "https://rarechromo.org/media/singlegeneinfo/Single%20Gene%20Disorder%20Guides/NONO-associated%20X-linked%20ID%20syndrome%20QFN.pdf"
-        };
-        LinkItems.Add("UniquePDF", unique);
-        string[] euroJurnal = new string[3]
-        {
-            @"Intellectual disability and non-compaction cardiomyopathy with a de novo NONO mutation identified by exome sequencing",
-            "https://media.springernature.com/full/nature-cms/uploads/product/ejhg/header-d8ba0ed98c6cf5de4fa2ee89c28067ff.svg",
-            "https://www.nature.com/articles/ejhg201672"
-        };
-        LinkItems.Add("EuroJurnal", euroJurnal);
-    }
 
-    public string GetLink(string key)
-    {
-        LinkItems.TryGetValue(key, out string[] value);
-        if (value == null) return "";
-        else return value[2];
-    }
-
-    public string GetPath(string key)
-    {
-        LinkItems.TryGetValue(key, out string[] value);
-        if (value == null) return "";
-        else return value[1];
-    }
-
-    public string GetText(string key)
-    {
-        LinkItems.TryGetValue(key, out string[] value);
-        if (value == null) return "";
-        else return value[0];
     }
 }
 
