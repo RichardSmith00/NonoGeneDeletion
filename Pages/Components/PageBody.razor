@@ -2,40 +2,37 @@
     .body-col {
         width: 75%;
         margin: auto;
-/*         margin-left: 25%;
-        margin-right: 25%; */
         background-color: lightgray;
         padding: 10px 50px 10px 50px;
         height: 90vh;
     }
 
-    footer {
-        text-align: left;
+    #footer {
+        margin-top: auto;
     }
-
-        footer p {
-            font-size:12px;
-        }
-
-        footer ul li {
-            font-size: 10px;
-        }
 </style>
 
-<div class="body-col">
-    @ChildContent
+<div style="position:relative; height: 100%; width: 75%; margin: auto;padding: 10px 50px 10px 50px;">
+    <div>
+        <h1>@Title</h1>
+        <br />
+        <hr />
+        @ChildContent
+    </div>
+    <div id="footer">
+        <p>Sources</p>
+        <ul>
+            <li>Early, M. |. F. U. P. (2024, February 22). NONO. https://www.mendelian.co/genes/nono</li>
+            <li>NONO-associated X-linked ID syndrome. (2021). Unique. Retrieved February 24, 2024, from https://rarechromo.org/media/singlegeneinfo/Single%20Gene%20Disorder%20Guides/NONO-associated%20X-linked%20ID%20syndrome%20QFN.pdf</li>
+        </ul>
+    </div>
 </div>
-<footer>
-    <p>Sources</p>
-    <ul>
-        <li>Early, M. |. F. U. P. (2024, February 22). NONO. https://www.mendelian.co/genes/nono</li>
-        <li>NONO-associated X-linked ID syndrome. (2021). Unique. Retrieved February 24, 2024, from https://rarechromo.org/media/singlegeneinfo/Single%20Gene%20Disorder%20Guides/NONO-associated%20X-linked%20ID%20syndrome%20QFN.pdf</li>
-    </ul>
 
-</footer>
 
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+    [Parameter] 
+    public string Title { get; set; }
 }
 

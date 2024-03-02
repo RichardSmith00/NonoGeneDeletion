@@ -2,30 +2,44 @@
 
 @page "/"
 
+<style>
+    #wrap {
+        width: 1200px;
+        height: 800px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #frame {
+        width: 1200px;
+        height: 820px;
+        border: 1px solid black;
+    }
+
+    #frame {
+        zoom: 0.75;
+        -moz-transform: scale(0.75);
+        -moz-transform-origin: 0 0;
+    }
+</style>
+
 <PageTitle>Home</PageTitle>
 
-<PageBody>
-    <h3>
-        NONO-Associated X-linked ID Syndrome
-    </h3>
-    <ImageAndTextWrap Text="@TextWrap" ImagePath="@ImagePath" ImageFloatDirection="right" ImageMargin="10"></ImageAndTextWrap>
-    <p>
-        When children are conceived, the genetic material is copied in the egg and sperm that make a new child. The biological copying method is not perfect, and random rare changes occur in the genetic code of children that are not seen in the DNA of their parents. This happens naturally and is not due to any lifestyle, dietary or environmental factors. No one is to blame and nobody is at fault. Such changes happen to everyone but it’s only when a change affects an important gene that health and/or development are affected.
-        In most children diagnosed with NONO-associated X-linked ID syndrome so far, the change in the NONO gene occurred by chance in that child (this is known as de novo ) and was not found in their parents. However, a few children are known to have inherited a pathogenic variant of the NONO gene from an unaffected or mildly affected mother.
+<PageBody Title="NONO-Associated X-linked ID Syndrome">
+
+    <p style="font-size: 18px;">
+        When children are conceived, the genetic material is copied in the egg and sperm that make a new child. The biological copying method is not perfect, and random rare changes occur in the genetic code of children that are not seen in the DNA of their parents. This happens naturally and is not due to any lifestyle, dietary or environmental factors. No one is to blame and nobody is at fault. Such changes happen to everyone but it’s only when a change affects an important gene that health and/or development are affected. <br />In most children diagnosed with NONO-associated X-linked ID syndrome so far, the change in the NONO gene occurred by chance in that child (this is known as de novo ) and was not found in their parents. However, a few children are known to have inherited a pathogenic variant of the NONO gene from an unaffected or mildly affected mother.NONO-associated X-linked ID syndrome is very rare. Currently (March 2021) 11 children with this diagnosis have been reported in the medical literature. It is expected that more children will be diagnosed with this condition as awareness increases and genetic testing becomes more routine. It is important to know that the most severely affected children are likely to be the first identified so initial findings may not represent the possible spectrum of symptom severity.
     </p>
+    <div id="wrap">
+        <iframe id="frame" src="https://www.youtube.com/embed/mjfhST8diYo?si=ylGgawLD8Bv0zbBt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    </div>           
+    <br />
+    <br />
+    <br />
 </PageBody>
 
-
 @code {
-    public string TextWrap {get; set;}
-    public string ImagePath { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        TextWrap = "NONO-associated X-linked ID syndrome is very rare. Currently (March 2021) 11 children with this diagnosis have been reported in the medical literature. It is expected that more children will be diagnosed with this condition as awareness increases and genetic testing becomes more routine. It is important to know that the most severely affected children are likely to be the first identified so initial findings may not represent the possible spectrum of symptom severity.";
-
-        //ImagePath = "https://media.geeksforgeeks.org/wp-content/uploads/20190808143838/logsm.png";
-        ImagePath = "images/doctor-cartoon.jpg";
-    }
 }
 

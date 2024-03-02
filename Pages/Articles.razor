@@ -9,77 +9,78 @@
         display: list-item;
         list-style-type: none;
     }
+
+    .float-container {
+        border: 3px solid #fff;
+        padding: 20px;
+    }
+
+    .float-child {
+        width: 50%;
+        float: left;
+        padding: 20px;
+    }
 </style>
 
 <PageTitle>Articles</PageTitle>
 
-<PageBody>
-    <h3>NONO-Associated X-linked ID Syndrome Articles</h3>
+<PageBody Title="NONO-Associated X-linked ID Syndrome Articles">
+    <table>
+        
+        <tr>
+            <td>
+                <a href="https://rarechromo.org/media/singlegeneinfo/Single%20Gene%20Disorder%20Guides/NONO-associated%20X-linked%20ID%20syndrome%20QFN.pdf">
+                    <img style="width:300px;" src="images/unique_logo.png" />
+                </a>
+            </td>
+            <td>
+                <p>NONO-associated X-linked ID (intellectual disability) syndrome is a rare genetic condition that causes developmental delay and can affect a child’s learning abilities and behaviour.</p>
+                <h4>PDF: </h4><a href="Documents/NONO-associated X-linked ID syndrome QFN.pdf">NONO-associated X-linked ID syndrome</a>
+            </td>
+        </tr>
+       
+        
+        <tr>
+            <td>
+                <a href="https://www.nature.com/articles/ejhg201672">
+                    <img style="width:300px;" src="https://media.springernature.com/full/nature-cms/uploads/product/ejhg/header-d8ba0ed98c6cf5de4fa2ee89c28067ff.svg" />
+                </a>                   
+            </td>
+            <td>
+                <p>Intellectual disability and non-compaction cardiomyopathy with a de novo NONO mutation identified by exome sequencing</p>
+            </td>
+        </tr>
 
-    <div id="list-container">
-        <div style="display: block">
-            <a href="@GetLink("UniquePDF")" target="_blank">
-                <ImageAndTextWrap Text="@GetText("UniquePDF")" ImagePath="@GetPath("UniquePDF")" ImageFloatDirection="left" ImageMargin="10"></ImageAndTextWrap>
-            </a>
-            <h4>PDF: </h4><a href="Documents/NONO-associated X-linked ID syndrome QFN.pdf">NONO-associated X-linked ID syndrome</a>
-        </div>
-        <div style="display: block">
-            <a href="@GetLink("EuroJurnal")" target="_blank">
-                <ImageAndTextWrap Text="@GetText("EuroJurnal")" ImagePath="@GetPath("EuroJurnal")" ImageFloatDirection="top" ImageMargin="10"></ImageAndTextWrap>
-            </a>
-        </div>
-    </div>
+        <tr>
+            <td colspan="2">Downloadable Articles</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="Documents/NONO-associated X-linked intellectual disability syndrome.pdf">
+                    <p>
+                        Expanding the genetic and clinical spectrum of the
+                        NONO-associated X-linked intellectual disability syndrome
+                    </p>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="Documents/X-linked syndromic mental retardation.pdf">
+                    <p>
+                        X-linked syndromic mental retardation-34 is an X-linked recessive neurodevelopmental disordercharacterized by delayed psychomotor development,
+                        intellectual disability with poor speech, dysmorphic facial features, and mild structural brain abnormalities, including thickening of the
+                        corpus callosum (summary by Mircsof et al., 2015).
+                    </p>
+                </a>
+            </td>
+        </tr>
+
+    </table>
 </PageBody>
 
 
 @code {
-    public string TextWrap { get; set; }
-    public string ImagePath { get; set; }
-    public Dictionary<string, string[]> LinkItems { get; set; } = new Dictionary<string, string[]>();
 
-    protected override async Task OnInitializedAsync()
-    {
-        TextWrap = @"";
-
-        //ImagePath = "https://media.geeksforgeeks.org/wp-content/uploads/20190808143838/logsm.png";
-        ImagePath = "images/doctor-cartoon.jpg";
-
-
-        string[] unique = new string[3]
-        {
-            @"NONO-associated X-linked ID (intellectual disability) syndrome is a rare genetic condition that causes developmental delay and can affect a child’s learning abilities and behaviour.",
-            "images/unique_logo.png",
-            "https://rarechromo.org/media/singlegeneinfo/Single%20Gene%20Disorder%20Guides/NONO-associated%20X-linked%20ID%20syndrome%20QFN.pdf"
-        };
-        LinkItems.Add("UniquePDF", unique);
-        string[] euroJurnal = new string[3]
-        {
-            @"Intellectual disability and non-compaction cardiomyopathy with a de novo NONO mutation identified by exome sequencing",
-            "https://media.springernature.com/full/nature-cms/uploads/product/ejhg/header-d8ba0ed98c6cf5de4fa2ee89c28067ff.svg",
-            "https://www.nature.com/articles/ejhg201672"
-        };
-        LinkItems.Add("EuroJurnal", euroJurnal);
-    }
-
-    public string GetLink(string key)
-    {
-        LinkItems.TryGetValue(key, out string[] value);
-        if (value == null) return "";
-        else return value[2];
-    }
-
-    public string GetPath(string key)
-    {
-        LinkItems.TryGetValue(key, out string[] value);
-        if (value == null) return "";
-        else return value[1];
-    }
-
-    public string GetText(string key)
-    {
-        LinkItems.TryGetValue(key, out string[] value);
-        if (value == null) return "";
-        else return value[0];
-    }
 }
 
